@@ -1,0 +1,94 @@
+﻿@model IEnumerable<GestionCommandes.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container" style="background: black; text-align:center">
+    <h1 class="text-center" style="color:white;font-weight:bold;">LISTE DE TOUS DES CLIENTS</h1>
+</div>
+
+<p class="btn-group">
+    <a class="btn btn-success" asp-action="Create">Ajouter un produit</a>
+</p>
+
+<div class="overflow-auto">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fax)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td class="btn-group">
+                        <a class="btn btn-info mx-1" asp-action="Edit" asp-route-id="@item.CustomerId">MODIFIER</a>
+                        <a class="btn btn-success mx-1" asp-action="Details" asp-route-id="@item.CustomerId">DETAILS</a>
+                        <a class="btn btn-danger mx-1" asp-action="Delete" asp-route-id="@item.CustomerId">SUPPRIMER</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

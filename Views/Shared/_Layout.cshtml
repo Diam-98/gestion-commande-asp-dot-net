@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <metaurl()utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/adminlte.css" />
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Custom fonts for this template -->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: #f6f7f8">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Commandes" asp-action="Index"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        
+                        <li class="nav-item d-flex align-items-center">
+                            <i class="fas fa-home"></i>
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="Commandes" asp-action="Index">ACCUEIL</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center">
+                            
+                            <a style="font-weight:bold" class="nav-link text-light " asp-area="" asp-controller="Commandes" asp-action="Index">COMMANDES</a>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="DetailCommandes" asp-action="Index">DETAILS COMMANDES</a>
+                        </li>-->
+                        
+                        <li class="nav-item">
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Index">PRODUITS</a>
+                        </li>
+                        <!--
+                         <li class="nav-item">
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="Employees" asp-action="Index">EMPLOYES</a>
+                        </li>-->
+                        <!--
+                         <li class="nav-item">
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="Shippers" asp-action="Index">SHIPPERS</a>
+                        </li>-->
+                         <li class="nav-item">
+                            <a style="font-weight:bold" class="nav-link text-light" asp-area="" asp-controller="Customers" asp-action="Index">CLIENTS</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <br />
+    <br />
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            Gestion des commandes &copy;
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false) 
+  <script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+  </script>
+</body>
+</html>

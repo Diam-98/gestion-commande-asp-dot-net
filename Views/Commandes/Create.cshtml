@@ -1,0 +1,117 @@
+﻿@model GestionCommandes.ViewModel.OrderCreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container" style="background: black; text-align:center">
+    <h1 class="text-center" style="color:white;font-weight:bold;">AJOUT D'UNE COMMANDE COMMANDES</h1>
+</div>
+<div>
+    <a class="btn btn-outline-info" asp-action="Index">RETOUR</a>
+</div>
+<hr />
+<div class="container">
+    <div class="col-lg-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.order.Customer" class="control-label"></label>
+                <select asp-for="@Model.order.CustomerId" class ="form-control" asp-items="@Model.Customers">
+                    <option value="">Veuillez selectionner un customer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.Employee" class="control-label"></label>
+                <select asp-for="@Model.order.EmployeeId" class ="form-control" asp-items="@Model.Employees">
+                    <option value="">Veuillez selectionner un employe</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.OrderDate" class="control-label"></label>
+                <input asp-for="@Model.order.OrderDate" class="form-control" />
+                <span asp-validation-for="@Model.order.OrderDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.RequiredDate" class="control-label"></label>
+                <input asp-for="@Model.order.RequiredDate" class="form-control" />
+                <span asp-validation-for="@Model.order.RequiredDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShippedDate" class="control-label"></label>
+                <input asp-for="@Model.order.ShippedDate" class="form-control" />
+                <span asp-validation-for="@Model.order.ShippedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipVia" class="control-label"></label>
+                <select asp-for="@Model.order.ShipVia" class ="form-control" asp-items="@Model.Shippers">
+                    <option value="">Veuillez selectionner un shipper</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipName" class="control-label"></label>
+                <input asp-for="@Model.order.ShipName" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipAddress" class="control-label"></label>
+                <input asp-for="@Model.order.ShipAddress" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipCity" class="control-label"></label>
+                <input asp-for="@Model.order.ShipCity" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipRegion" class="control-label"></label>
+                <input asp-for="@Model.order.ShipRegion" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipRegion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipPostalCode" class="control-label"></label>
+                <input asp-for="@Model.order.ShipPostalCode" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipPostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.order.ShipCountry" class="control-label"></label>
+                <input asp-for="@Model.order.ShipCountry" class="form-control" />
+                <span asp-validation-for="@Model.order.ShipCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ENREGISTRER" class="btn btn-lg-8 btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+   <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            var selectedProduct = $("#lstProducts").val();
+
+            var priceSelect = $("#lstPrices");
+            priceSelect.empty;
+
+            if (selectedProduct != null && selectedProduct != '') {
+                $.getJSON('@Url.Action("GetProductPrices")', { ProductId: selectedProduct }, function(products) {
+                    if (products != null && jQuery.isEmptyObject(products)) {
+                        priceSelect.append($('<option/>', {
+                            value: null,
+                            text: "Selectionner un prix"
+                        }));
+
+                        $.each(products, function(index, product) {
+                            priceSelect.append($('<option/>', {
+                                value: product.value,
+                                text: product.text
+                            }));
+                        });
+                    };
+                });
+            };
+        })
+    </script>-->
+}

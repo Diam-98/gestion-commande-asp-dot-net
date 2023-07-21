@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GestionCommandes.Models.Shipper>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p class="btn-group">
+    <a class="btn btn-success" asp-action="Create">NOUVEAU</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td class="btn-group">
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ShipperId">MODIFIER</a>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ShipperId">DETAILS</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ShipperId">SUPPRIMER</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
